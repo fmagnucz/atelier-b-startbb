@@ -8,22 +8,6 @@ TODO
 
 == List of tools
 
-=== startBB-2404.sh
-
-This bash script starts a bbatch console. You can use this script for Atelier B 204.04.2.
-
-==== Prerequisites
-
-* Installed Atelier B 24.04.2.
-
-* The workspace directory contains its config file (AtelierB).
-
-==== Usage
-
-Put this file in a directory that is in the $PATH environment variable, or create a simbolic link here.
-
-You can run this script form an Atelier B workspace directory that contains the project directories, the _bdb_ database directory and the workspce config file (AtelierB). If the workspace directory doesn't contain a file named _AtelierB_, the script will exit immediately.
-
 === initABWS-2404.sh
 
 This bash script makes an Atelier B workspace directory form an empty directory. It will create the _bdb_ database folder, and a config file named _AtelierB_ for this workspace. 
@@ -40,3 +24,36 @@ Put this file in a directory that is in the $PATH environment variable, or creat
 
 You can run this script from an empty directory. If the directory is not empty the script will exit immediately. The script will ask the path of the installed Atelier B.
 
+=== startBB-2404.sh
+
+This bash script starts a bbatch console. You can use this script for Atelier B 204.04.2.
+
+==== Prerequisites
+
+* Installed Atelier B 24.04.2.
+
+* The workspace directory contains its config file (AtelierB).
+
+==== Usage
+
+Put this file in a directory that is in the $PATH environment variable, or create a simbolic link here.
+
+You can run this script form an Atelier B workspace directory that contains the project directories, the _bdb_ database directory and the workspce config file (AtelierB). If the workspace directory doesn't contain a file named _AtelierB_, the script will exit immediately.
+
+=== syncABWS-2404.sh
+
+This bash script syncronize the workspace directory into the workspace database. Add, remove and sync projects with the workspace database. If you add a folder to the workspace directory, the script will create a project with folders name. If you delete the whole directories of a project, it will be removed from the worksapce project as well. Moreover, the components of the projects will be synchronized as well.
+
+==== Prerequisites
+
+* Installed Atelier B 24.04.2.
+
+* The workspace directory contains its config file (AtelierB).
+
+* The parent directory of startBB-2404.sh is on the PATH.
+
+==== Usage
+
+Put this file in a directory that is in the $PATH environment variable, or create a simbolic link here.
+
+If you added a new projects or component file or deleted you should run this script in order to the projects in the Atelier B presentation will be godd and synchronized with the file system.
