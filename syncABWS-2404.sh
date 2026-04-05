@@ -82,16 +82,15 @@ CURRENT_PROJECTS=$(run_bbach "spl" | grep "^  " | awk '{print $1}' | tr -d '\r')
 
 for proj in $ACTUAL_DIRS; do
     # Verify the project exists in the refreshed registered list
-    if ! echo "$CURRENT_PROJECTS" | grep -qw "$proj"; then 
-        continue 
+    if ! echo "$CURRENT_PROJECTS" | grep -qw "$proj"; then
+        echo "Problem with the $proj!"
+        continue
     fi
     
     echo "Syncing components for: $proj"
     
-    # Get the list of registered components (sml)
-    # We use awk to extract the first column (component name)
     REG_COMPONENTS=$(run_bbach "op $proj
-sml" | grep "^  " | awk '{print $1}' | tr -d '\r')
+sml" | grep -P "^( |\t)+" | awk '{print $1}' | tr -d '\r')
 
     SRC_DIR="$PROJECT_ROOT/$proj/src"
     if [ ! -d "$SRC_DIR" ]; then
